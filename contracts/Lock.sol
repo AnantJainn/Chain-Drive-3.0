@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
-
+// Anant Jain
 pragma solidity >=0.7.0 <0.9.0;
 
 contract Upload {
@@ -43,7 +43,7 @@ contract Upload {
     function display(address _user) external view returns (string[] memory) {
         require(
             _user == msg.sender || ownership[_user][msg.sender],
-            "You don't have access"
+            "You don't have to access"
         );
         return value[_user];
     }

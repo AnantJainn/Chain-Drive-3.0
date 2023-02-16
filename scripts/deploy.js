@@ -1,14 +1,15 @@
-require("@nomicfoundation/hardhat-toolbox");
+const hre = require("hardhat");
 
-/** @type import('hardhat/config').HardhatUserConfig */
-module.exports = {
-  solidity: "0.8.9",
-  networks: {
-    hardhat: {
-      chainId: 1337,
-    },
-  },
-  paths: {
-    artifacts: "./client/src/artifacts",
-  },
-};
+async function main() {
+  const Upload = await hre.ethers.getContractFactory("Upload");
+  const upload = await Upload.deploy();
+
+  await upload.deployed();
+
+  console.log("Library deployed to:", upload.address);
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
