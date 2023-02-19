@@ -54,6 +54,7 @@ function App() {
       Account : {account ? account : "Not connected"}
     </p>
     <FileUpload account={account} provider={provider} contract={contract} />
+    <Display contract={contract} account={account}></Display>
   </div>;
 }
 
